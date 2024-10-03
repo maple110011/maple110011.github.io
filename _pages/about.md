@@ -34,11 +34,11 @@ redirect_from:
 
 ### 投入产出分析
 ---
--投入产出分析的基本概念
+- 投入产出分析的基本概念
 [[公众号版]](https://mp.weixin.qq.com/s/LH4QVdiMJWZ2umdLo9fCKg)[[知乎版]](https://zhuanlan.zhihu.com/p/712656391)
--投入产出方程有经济意义解的存在性条件
+- 投入产出方程有经济意义解的存在性条件
 [[公众号版]](https://mp.weixin.qq.com/s/eadBaI0ExAl3tk3WXXy_nw)[[知乎版]](https://zhuanlan.zhihu.com/p/712660692)
--Perron-Frobenius定理及价格模型
+- Perron-Frobenius定理及价格模型
 [[公众号版]](https://mp.weixin.qq.com/s/vs36FGN2_iU6Q4zDSoHSgw)[[知乎版]](https://zhuanlan.zhihu.com/p/712656391)
 -	模型假定及无替代定理
 [[公众号版]](https://mp.weixin.qq.com/s/v_6CQAEPwKW8uvaXOgA6cA)[[知乎版]](https://zhuanlan.zhihu.com/p/716125131)
