@@ -1,19 +1,21 @@
 # main links links
 main:
-  - title: "简介"
+  - title: "统计学文章"
     url: "/_pages/聚类评价指标"
 
-  - title: "YNU简历模板"
+  - title: "经济学文章"
+    url: "/_pages/聚类评价指标"
+
+  - title: "YNU相关资源"
     url: "/assets/YNU_CV.pdf"
 
-  - title: "论文专利"
-    url: "/zh-cn/#-lwzl"
-
-  - title: "荣誉奖项"
+  - title: "学术资源库"
+    url: "/学术资源库"
+    
+  - title: "发表"
     url: "/zh-cn/#-ryjx"
 
-  - title: "学术会议"
+  - title: "会议"
     url: "/zh-cn/#-xshy"
 
-  - title: "工作实习"
-    url: "/zh-cn/#-gzsx"
+
