@@ -68,4 +68,4 @@ redirect_from:
 
 # 译介
 - R inferno
-[[html]]((_pages/index.html))
+[[html]]((index.html))
