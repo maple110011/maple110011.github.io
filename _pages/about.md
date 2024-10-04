@@ -65,3 +65,7 @@ redirect_from:
 
 - 非市场化改革的可能性
 [[公众号版]](https://mp.weixin.qq.com/s/DzBRkPlM1_7ZWwEwvuVSoA)
+
+# 译介
+- R inferno
+[[html]]((_pages/index.html))
