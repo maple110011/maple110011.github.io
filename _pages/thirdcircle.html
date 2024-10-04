@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 第三层地狱:失败的向量操作 | 通向R地狱之路</title>
+  <meta name="description" content="Chapter 4 第三层地狱:失败的向量操作 | 通向R地狱之路" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 第三层地狱:失败的向量操作 | 通向R地狱之路" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 第三层地狱:失败的向量操作 | 通向R地狱之路" />
+  
+  
+  
+
+<meta name="author" content="Patrick Burns" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="secondcircle.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#摘要"><i class="fa fa-check"></i><b>1.1</b> 摘要</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#游荡"><i class="fa fa-check"></i><b>1.1.1</b> 游荡</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="firstcircle.html"><a href="firstcircle.html"><i class="fa fa-check"></i><b>2</b> 第一层地狱:落入浮点数陷阱</a></li>
+<li class="chapter" data-level="3" data-path="secondcircle.html"><a href="secondcircle.html"><i class="fa fa-check"></i><b>3</b> 第二层地狱:增长对象</a></li>
+<li class="chapter" data-level="4" data-path="thirdcircle.html"><a href="thirdcircle.html"><i class="fa fa-check"></i><b>4</b> 第三层地狱:失败的向量操作</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="thirdcircle.html"><a href="thirdcircle.html#索引操作subscripting"><i class="fa fa-check"></i><b>4.1</b> 索引操作(subscripting)</a></li>
+<li class="chapter" data-level="4.2" data-path="thirdcircle.html"><a href="thirdcircle.html#条件语句"><i class="fa fa-check"></i><b>4.2</b> 条件语句</a></li>
+<li class="chapter" data-level="4.3" data-path="thirdcircle.html"><a href="thirdcircle.html#不可向量化的操作"><i class="fa fa-check"></i><b>4.3</b> 不可向量化的操作</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">通向R地狱之路</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="thirdcircle" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> 第三层地狱:失败的向量操作<a href="thirdcircle.html#thirdcircle" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>我们到达了地狱的第三层，这里充满了无休止的冷雨，守卫在这里的刻耳柏洛斯(Cerberus)从它的三个喉咙中发出嘶吼，这层地狱中的亵渎者身着黄金制成的闪闪发光的服饰，并永恒地承受着能压垮他们的重量。在这儿维吉尔对我说：“记住一条法则——一个东西越完美，它的痛苦或快乐也就越极致。”</p>
+<p>让我们来看一些代码</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="thirdcircle.html#cb36-1" tabindex="-1"></a>lsum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb36-2"><a href="thirdcircle.html#cb36-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb36-3"><a href="thirdcircle.html#cb36-3" tabindex="-1"></a>  lsum <span class="ot">&lt;-</span> lsum <span class="sc">+</span> <span class="fu">log</span>(x[i])</span>
+<span id="cb36-4"><a href="thirdcircle.html#cb36-4" tabindex="-1"></a>}</span></code></pre></div>
+<p>别这样，这是在用C语言的写法(非常C语言的写法)在写R，我们可以用更简单的方式实现同样的功能</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="thirdcircle.html#cb37-1" tabindex="-1"></a>lsum <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">log</span>(x))</span></code></pre></div>
+<p>这样不仅对你的手腕更友好，而且在运算速度上也更快(此外它还顺带解决了一个小问题——循环中若x长度为0时将报错)</p>
+<p>向量化操作是上述代码得以起作用的关键，log函数按R的传统是向量化的运算，也即它会对向量中的每一个值做同样的操作，更具体地来说，这行代码:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="thirdcircle.html#cb38-1" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">c</span>(<span class="dv">23</span>,<span class="fl">67.1</span>))</span></code></pre></div>
+<pre><code>## [1] 3.135494 4.206184</code></pre>
+<p>和这行代码的结果是一样的</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="thirdcircle.html#cb40-1" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">23</span>),<span class="fu">log</span>(<span class="fl">67.1</span>))</span></code></pre></div>
+<pre><code>## [1] 3.135494 4.206184</code></pre>
+<p>sum函数则是在另一种意义上进行向量操作，它接受一个向量作为输入，并且基于向量的所有元素返回求和结果，也就是说sum(x)实际上是</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="thirdcircle.html#cb42-1" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="sc">+</span> x[<span class="dv">2</span>] <span class="sc">+</span> ... <span class="sc">+</span> x[<span class="fu">length</span>(x)]</span></code></pre></div>
+<p>prod函数和sum是类似的，只不过是返回乘积而非求和。值得一提的是，乘积经常容易发生上溢或者下溢(这算是第一层地狱的问题)，取对数化为求和通常是较为稳妥的方法。</p>
+<p>你通常不需要费力自己进行向量化，R的很多东西天生就是向量化的。我们回看第<a href="firstcircle.html#firstcircle">2</a>章中用到的函数quadratic.formula，由于运算函数是向量化的，无论输入如何，输出结果都会是一个向量。唯一的小问题是每对输入都有两个答案，我们调用cbind就是为了把答案匹配起来。</p>
+<p>在二元运算中，循环将会自动地在向量情况下发生，譬如</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="thirdcircle.html#cb43-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>) <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1]  2  6  4  8  6 10  8 12 10 14</code></pre>
+<p>下面这个例子同时有着第<a href="firstcircle.html#firstcircle">2</a>章和第<a href="secondcircle.html#secondcircle">3</a>章的问题</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="thirdcircle.html#cb45-1" tabindex="-1"></a>ans <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb45-2"><a href="thirdcircle.html#cb45-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">507980</span>) {</span>
+<span id="cb45-3"><a href="thirdcircle.html#cb45-3" tabindex="-1"></a>  <span class="cf">if</span>(x[i] <span class="sc">&lt;</span> <span class="dv">0</span>) ans <span class="ot">&lt;-</span> <span class="fu">c</span>(ans, y[i])</span>
+<span id="cb45-4"><a href="thirdcircle.html#cb45-4" tabindex="-1"></a>}</span></code></pre></div>
+<p>我们完全可以用非常简洁的方式实现它</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="thirdcircle.html#cb46-1" tabindex="-1"></a>ans <span class="ot">&lt;-</span> y[x<span class="sc">&lt;</span><span class="dv">0</span>]</span></code></pre></div>
+<p>倍增的for循环操作通常是由于直接从其他语言把代码抄了过来，完全按照其他语言的内核照抄代码并不是一件好事，你最好思考一下R是怎么运行的，直接照抄其他语言的写法可能会让你觉得它们运行起来又快又好，但当你用R的思路重新整理代码之后，你将会发现R的强大之处(当然前提是你知道R的优势在哪，这样你才能写出R口音的代码)</p>
+<p>如果你正在尝试对抄过来的代码(拥有很多for循环)实现R本土化，请想一想，如果你的函数不是向量化的，那么你可能需要使用Vectorize来得到一个向量化的版本，但这只是一种外在的向量化，而非编写固有的向量运算函数，Vectorize函数仍旧使用原始函数来执行循环。</p>
+<p>一些函数可以接受函数作为参数，并要求它们是向量化的(除了outer和integrate)</p>
+<p>下面给出了另一种向量运算的形式</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="thirdcircle.html#cb47-1" tabindex="-1"></a><span class="fu">max</span>(<span class="dv">2</span>, <span class="dv">100</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">230</span>, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 230</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="thirdcircle.html#cb49-1" tabindex="-1"></a><span class="fu">range</span>(<span class="dv">2</span>, <span class="dv">100</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">230</span>, <span class="dv">5</span>, <span class="fu">c</span>(<span class="dv">4</span>, <span class="sc">-</span><span class="dv">456</span>, <span class="dv">9</span>))</span></code></pre></div>
+<pre><code>## [1] -456  230</code></pre>
+<p>这种向量运算是把参数的集合作为一个向量，这种形式不是你应该期望的，因为它本质上上来说是和R的内核是格格不入的——min,max,range,sum还有prod是少数例外。特别地，mean不遵守这种向量操作的形式，并且很不幸的是，当你错误地使用了这种形式时R并不会报错</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="thirdcircle.html#cb51-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">100</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">230</span>, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>你可以通过套上c函数来修正错误</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="thirdcircle.html#cb53-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">100</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">230</span>, <span class="dv">5</span>))</span></code></pre></div>
+<pre><code>## [1] -54</code></pre>
+<p>一个使用向量操作的理由是这样算得更快，向量操作的本质是循环，而循环在C语言中必然比在R中跑得更快。某些情况下，这一点非常重要，而在另一些情况下则无伤大雅，譬如一个小循环在现在的计算机中无论是用R还是用C跑都差不了多少。</p>
+<p>另一个使用向量操作的理由是更好懂，譬如:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="thirdcircle.html#cb55-1" tabindex="-1"></a>volume <span class="ot">&lt;-</span> width<span class="sc">*</span>depth<span class="sc">*</span>height</span></code></pre></div>
+<p>这条代码明确地展示了变量间的关系，无论我们需要计算一次还是一百万次，都不会伤其分毫。代码的可读性对高效工作来说是非常重要的，计算机的时间不值钱，但是我们的时间很值钱(并且晦涩的代码会带来挫败感)，这是Uwe Ligges的座右铭</p>
+<p><span class="math display">\[\boldsymbol{更好的电脑是廉价的，但有损思考能力}\]</span>
+R语言的新手普遍会问同一个问题:“我该怎么为一些类似的对象分配名字呢？”你可以这样做，但最好别想要这样做——用向量化的思维会更好，把同类型的对象都放到列表里去，随后的分析和操作会更加顺滑。</p>
+<div id="索引操作subscripting" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> 索引操作(subscripting)<a href="thirdcircle.html#索引操作subscripting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="tabwid"><style>.cl-7e63ab00{table-layout:auto;}.cl-7e589c6a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7e5d4e40{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-7e5d6ad8{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7e5d6ae2{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7e5d6aec{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-7e63ab00'>
+
+```
+
+<caption style="display:table-caption;">(\#tab:t-1)<span>下标索引方法</span></caption>
+
+```{=html}
+
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-7e5d6ad8"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">索引类型</span></p></th><th class="cl-7e5d6ad8"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">作用</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-7e5d6ae2"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">正值向量</span></p></td><td class="cl-7e5d6ae2"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">选择这些索引位置的值</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7e5d6ae2"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">负值向量</span></p></td><td class="cl-7e5d6ae2"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">选择除了这些索引位置的其他值</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7e5d6ae2"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">字符向量</span></p></td><td class="cl-7e5d6ae2"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">根据列名或行名进行选择</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7e5d6ae2"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">布尔向量</span></p></td><td class="cl-7e5d6ae2"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">选择为TRUE和NA的位置对应的值</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7e5d6aec"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">缺失</span></p></td><td class="cl-7e5d6aec"><p class="cl-7e5d4e40"><span class="cl-7e589c6a">选择所有值</span></p></td></tr></tbody></table></div>
+<p>下标操作在R中是非常有用的，并且通常能使得向量操作如虎添翼。表<a href="#tab:t-1"><strong>??</strong></a>对下标操作做了总结。</p>
+<p>数组和数据框的维数索引是不一样的。数组(包括矩阵)可以用一个均为正数的矩阵进行索引，索引矩阵的列数要和数组的维数一样多——也就是说一个矩阵对应的索引矩阵有两列。索引得到的结果是一个包含选中项的向量而非数组。</p>
+<p>列表也可以像向量一样被下标索引，然而，列表有着两种特殊的索引形式:“$”和”[[“，它俩几乎是一样的，不同之处在于”$“需要的是变量名而非字符串.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="thirdcircle.html#cb56-1" tabindex="-1"></a>mylist <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">aaa=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">bbb=</span>letters)</span>
+<span id="cb56-2"><a href="thirdcircle.html#cb56-2" tabindex="-1"></a>mylist<span class="sc">$</span>aaa</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="thirdcircle.html#cb58-1" tabindex="-1"></a>mylist[[<span class="st">&#39;aaa&#39;</span>]]</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="thirdcircle.html#cb60-1" tabindex="-1"></a>subv <span class="ot">&lt;-</span> <span class="st">&#39;aaa&#39;</span>; mylist[[subv]]</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>其实我刚刚说的有一些小问题，事实上用”[[“也可以对向量进行索引操作，当你只需要一项时，这可能是一个更稳妥的选择。不过如果你使用”[[“进行索引却想要不止一项，那结果就不尽如人意了。</p>
+</div>
+<div id="条件语句" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> 条件语句<a href="thirdcircle.html#条件语句" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="不可向量化的操作" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> 不可向量化的操作<a href="thirdcircle.html#不可向量化的操作" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="secondcircle.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/circle3.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

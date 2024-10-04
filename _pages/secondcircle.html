@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 第二层地狱:增长对象 | 通向R地狱之路</title>
+  <meta name="description" content="Chapter 3 第二层地狱:增长对象 | 通向R地狱之路" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 第二层地狱:增长对象 | 通向R地狱之路" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 第二层地狱:增长对象 | 通向R地狱之路" />
+  
+  
+  
+
+<meta name="author" content="Patrick Burns" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="firstcircle.html"/>
+<link rel="next" href="thirdcircle.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#摘要"><i class="fa fa-check"></i><b>1.1</b> 摘要</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#游荡"><i class="fa fa-check"></i><b>1.1.1</b> 游荡</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="firstcircle.html"><a href="firstcircle.html"><i class="fa fa-check"></i><b>2</b> 第一层地狱:落入浮点数陷阱</a></li>
+<li class="chapter" data-level="3" data-path="secondcircle.html"><a href="secondcircle.html"><i class="fa fa-check"></i><b>3</b> 第二层地狱:增长对象</a></li>
+<li class="chapter" data-level="4" data-path="thirdcircle.html"><a href="thirdcircle.html"><i class="fa fa-check"></i><b>4</b> 第三层地狱:失败的向量操作</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="thirdcircle.html"><a href="thirdcircle.html#索引操作subscripting"><i class="fa fa-check"></i><b>4.1</b> 索引操作(subscripting)</a></li>
+<li class="chapter" data-level="4.2" data-path="thirdcircle.html"><a href="thirdcircle.html#条件语句"><i class="fa fa-check"></i><b>4.2</b> 条件语句</a></li>
+<li class="chapter" data-level="4.3" data-path="thirdcircle.html"><a href="thirdcircle.html#不可向量化的操作"><i class="fa fa-check"></i><b>4.3</b> 不可向量化的操作</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">通向R地狱之路</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="secondcircle" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> 第二层地狱:增长对象<a href="secondcircle.html#secondcircle" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>我们来到地狱的第二层,这里生活着贪婪者.</p>
+<p>让我们看看三种创建同一个数列的方法,方法一是增长对象(growing object)</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="secondcircle.html#cb25-1" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">0</span>);n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb25-2"><a href="secondcircle.html#cb25-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) vec <span class="ot">&lt;-</span> <span class="fu">c</span>(vec, i)</span></code></pre></div>
+<p>方法二是先创建一个对应长度的向量,然后按索引依次改变其中的值</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="secondcircle.html#cb26-1" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n);n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb26-2"><a href="secondcircle.html#cb26-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) vec[i] <span class="ot">&lt;-</span> i</span></code></pre></div>
+<p>方法三是用R的冒号操作符</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="secondcircle.html#cb27-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb27-2"><a href="secondcircle.html#cb27-2" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span></code></pre></div>
+<table>
+<caption><span id="tab:s-1">Table 3.1: </span>三种创建序列方法的用时(秒)</caption>
+<thead>
+<tr class="header">
+<th align="right">序列长度</th>
+<th align="center">增长样本</th>
+<th align="center">索引修改</th>
+<th align="center">冒号操作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1000</td>
+<td align="center">0.01</td>
+<td align="center">0.01</td>
+<td align="center">0.00006</td>
+</tr>
+<tr class="even">
+<td align="right">10000</td>
+<td align="center">0.59</td>
+<td align="center">0.09</td>
+<td align="center">0.00040</td>
+</tr>
+<tr class="odd">
+<td align="right">100000</td>
+<td align="center">133.68</td>
+<td align="center">0.79</td>
+<td align="center">0.00500</td>
+</tr>
+<tr class="even">
+<td align="right">1000000</td>
+<td align="center">18718.00</td>
+<td align="center">8.10</td>
+<td align="center">0.09700</td>
+</tr>
+</tbody>
+</table>
+<p>表<a href="secondcircle.html#tab:s-1">3.1</a>显示了这三种方法在特定机器上生成长度为n的序列所用的时间(以秒为单位).三种方法所耗费的时间在对数-对数尺度上都大致与长度n呈线性关系,但增长系数有很大的不同</p>
+<p>你可能想知道为什么增长对象方法如此之慢,它在计算上来说可以类比为郊区开发(suburbanization),当我们需要变化序列的长度时,序列在计算机中的位置可能没有足够的空间让它增加长度,那么计算机就需要把序列移动到一个更宽阔的空间去,下一次增加序列长度时空间又不够了,计算机就需要再次移动它的位置,这将花费相当多的时间.正如现实中的郊区开发一样,增长对象方法会耗尽所有可用的空间,最后只会剩下一些小内存空间,这被叫做内存碎片化(fragmenting memory)</p>
+<p>对贪婪者而言,在rbind上使用增长对象方法是一个更为普遍,同时也更为危险的情景,例如:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="secondcircle.html#cb28-1" tabindex="-1"></a>my.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">character</span>(<span class="dv">0</span>),<span class="at">b=</span><span class="fu">numeric</span>(<span class="dv">0</span>))</span>
+<span id="cb28-2"><a href="secondcircle.html#cb28-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb28-3"><a href="secondcircle.html#cb28-3" tabindex="-1"></a>  my.df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my.df, <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">sample</span>(letters, <span class="dv">1</span>),</span>
+<span id="cb28-4"><a href="secondcircle.html#cb28-4" tabindex="-1"></a>                                   <span class="at">b=</span><span class="fu">runif</span>(<span class="dv">1</span>)))</span>
+<span id="cb28-5"><a href="secondcircle.html#cb28-5" tabindex="-1"></a>}</span></code></pre></div>
+<p>写出这种代码的主要原因可能是每一次观测都会得到不同值,也就是说,这段代码实际上更可能是</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="secondcircle.html#cb29-1" tabindex="-1"></a>my.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">character</span>(<span class="dv">0</span>),<span class="at">b=</span><span class="fu">numeric</span>(<span class="dv">0</span>))</span>
+<span id="cb29-2"><a href="secondcircle.html#cb29-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb29-3"><a href="secondcircle.html#cb29-3" tabindex="-1"></a>  this.N <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb29-4"><a href="secondcircle.html#cb29-4" tabindex="-1"></a>  my.df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my.df, <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">sample</span>(letters,this.N, <span class="at">replace=</span><span class="cn">TRUE</span>),<span class="at">b=</span><span class="fu">runif</span>(this.N)))</span>
+<span id="cb29-5"><a href="secondcircle.html#cb29-5" tabindex="-1"></a>}</span></code></pre></div>
+<p>通常情况下,我们最终想要的那个对象是可以确定一个合理的大小上界的,这样的话我们应当首先生成该大小的对象,最后再把多余的值全都删掉.如果最终大小是未知的,那么也应该沿用这一准则,仅分段使用增长对象方法.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="secondcircle.html#cb30-1" tabindex="-1"></a>current.N <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">*</span> n</span>
+<span id="cb30-2"><a href="secondcircle.html#cb30-2" tabindex="-1"></a>my.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">character</span>(current.N),<span class="at">b=</span><span class="fu">numeric</span>(current.N))</span>
+<span id="cb30-3"><a href="secondcircle.html#cb30-3" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb30-4"><a href="secondcircle.html#cb30-4" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb30-5"><a href="secondcircle.html#cb30-5" tabindex="-1"></a>  this.N <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb30-6"><a href="secondcircle.html#cb30-6" tabindex="-1"></a>  <span class="cf">if</span>(count <span class="sc">+</span> this.N <span class="sc">&gt;</span> current.N) {</span>
+<span id="cb30-7"><a href="secondcircle.html#cb30-7" tabindex="-1"></a>    old.df <span class="ot">&lt;-</span> my.df</span>
+<span id="cb30-8"><a href="secondcircle.html#cb30-8" tabindex="-1"></a>    current.N <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fl">1.5</span> <span class="sc">*</span> (current.N <span class="sc">+</span> this.N))</span>
+<span id="cb30-9"><a href="secondcircle.html#cb30-9" tabindex="-1"></a>    my.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">character</span>(current.N),</span>
+<span id="cb30-10"><a href="secondcircle.html#cb30-10" tabindex="-1"></a>                        <span class="at">b=</span><span class="fu">numeric</span>(current.N))</span>
+<span id="cb30-11"><a href="secondcircle.html#cb30-11" tabindex="-1"></a>    my.df[<span class="dv">1</span><span class="sc">:</span>count,] <span class="ot">&lt;-</span> old.df[<span class="dv">1</span><span class="sc">:</span>count, ]</span>
+<span id="cb30-12"><a href="secondcircle.html#cb30-12" tabindex="-1"></a>    }</span>
+<span id="cb30-13"><a href="secondcircle.html#cb30-13" tabindex="-1"></a>  my.df[count <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span>this.N,] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">sample</span>(letters,this.N, <span class="at">replace=</span><span class="cn">TRUE</span>),<span class="at">b=</span><span class="fu">runif</span>(this.N))</span>
+<span id="cb30-14"><a href="secondcircle.html#cb30-14" tabindex="-1"></a>  count <span class="ot">&lt;-</span> count <span class="sc">+</span> this.N</span>
+<span id="cb30-15"><a href="secondcircle.html#cb30-15" tabindex="-1"></a>  }</span>
+<span id="cb30-16"><a href="secondcircle.html#cb30-16" tabindex="-1"></a>my.df <span class="ot">&lt;-</span> my.df[<span class="dv">1</span><span class="sc">:</span>count,]</span></code></pre></div>
+<p>不过这样的问题一般都可以用一个更简便的方式解决——将不同的结果放入列表之中,然后再把它们合并到一块去</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="secondcircle.html#cb31-1" tabindex="-1"></a>my.list <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&#39;list&#39;</span>,n)</span>
+<span id="cb31-2"><a href="secondcircle.html#cb31-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb31-3"><a href="secondcircle.html#cb31-3" tabindex="-1"></a>  this.N <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb31-4"><a href="secondcircle.html#cb31-4" tabindex="-1"></a>  my.list[[i]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">sample</span>(letters,this.N,<span class="at">replace=</span><span class="cn">TRUE</span>), <span class="at">b=</span><span class="fu">runif</span>(this.N))</span>
+<span id="cb31-5"><a href="secondcircle.html#cb31-5" tabindex="-1"></a>  }</span>
+<span id="cb31-6"><a href="secondcircle.html#cb31-6" tabindex="-1"></a>my.df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(<span class="st">&#39;rbind&#39;</span>, my.list)</span></code></pre></div>
+<p>有许多看似聪明的写法可以掩盖你正在使用增长对象方法的事实,譬如下面的例子:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="secondcircle.html#cb32-1" tabindex="-1"></a>hit <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb32-2"><a href="secondcircle.html#cb32-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000000</span>) {</span>
+<span id="cb32-3"><a href="secondcircle.html#cb32-3" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">runif</span>(<span class="dv">1</span>) <span class="sc">&lt;</span> <span class="fl">0.3</span>) hit[i] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb32-4"><a href="secondcircle.html#cb32-4" tabindex="-1"></a>  }</span></code></pre></div>
+<p>仅当条件为真时,hit才会增长</p>
+<p>避免使用增长对象方法可能是R中最简单也最激励人心的加速代码运行路径</p>
+<p>如果你占用了太多内存空间,R会抱怨的.关键问题在于R将所有数据都存在了内存之中,如果你的数据很大,这会是一个弊端,不过从灵活性的角度来说,这使得R对数据几乎没有任何限制</p>
+<p>一些人可能会对下面这条报错信息可能非常熟悉</p>
+<p>Error: cannot allocate vector of size 79.8 Mb.</p>
+<p>这通常会带来一种误解:“我有xxxGB的内存,为什么R连80MB的空间都无法分配”,这事实上是因为R已经成功分配了相当多的内存,这条报错信息指的是R在某个小节点上想要分配内存时空间不足,而非对整个任务分配内存时空间不足.</p>
+<p>自然地,每一个看到这条报错信息的人都会想:“我该做点什么来解决问题”,这儿有一些很简单的办法:
+1.不要成为贪婪者,也即不要使用糟糕的语法结构(如增长对象方法)
+2.换一个更好的电脑
+3.减小问题的数量级</p>
+<p>如果你违反了第一条,并且没法做到第二条或第三条,那你操作的余地就所剩无几了,要么重启你的R(这通常是无济于事的),要么就老老实实地优化你的代码,找出哪些地方使用了增长对象方法.一种可行的办法是在你的程序中插入下面这串代码</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="secondcircle.html#cb33-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&#39;point 1 mem&#39;</span>, <span class="fu">memory.size</span>(), <span class="fu">memory.size</span>(<span class="at">max=</span><span class="cn">TRUE</span>), <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span></code></pre></div>
+<p>这显示了R当前拥有的内存以及可用的最大内存</p>
+<p>不过,一个可能更有效且更能提供信息的方法是使用Rprof和内存分析,值得一提的是Rprof还会给出程序的运行时间</p>
+<p>另一种为内存减负的方法是将数据存储在数据库中,并根据具体需求提取相应的数据.虽然部署数据库会花费一些时间,但它会是一种相当自然的工作流程</p>
+<p>在仅使用R的情况下构建“数据库”可以使用save函数,先将我们的数据分别储存为独立的文件,在日后使用时只读取其中的一部分,具体实现起来可能会像下面这样</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="secondcircle.html#cb34-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb34-2"><a href="secondcircle.html#cb34-2" tabindex="-1"></a>  objname <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&#39;obj.&#39;</span>, i, <span class="at">sep=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb34-3"><a href="secondcircle.html#cb34-3" tabindex="-1"></a>  <span class="fu">load</span>(<span class="fu">paste</span>(objname, <span class="st">&#39;.rda&#39;</span>, <span class="at">sep=</span><span class="st">&#39;&#39;</span>))</span>
+<span id="cb34-4"><a href="secondcircle.html#cb34-4" tabindex="-1"></a>  the_obj <span class="ot">&lt;-</span> <span class="fu">get</span>(objname)</span>
+<span id="cb34-5"><a href="secondcircle.html#cb34-5" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list=</span>objname)</span>
+<span id="cb34-6"><a href="secondcircle.html#cb34-6" tabindex="-1"></a>  <span class="co"># use the obj</span></span>
+<span id="cb34-7"><a href="secondcircle.html#cb34-7" tabindex="-1"></a>}</span></code></pre></div>
+<p>随着计算机技术的发展,日后性能更好的计算机可以解决我们现在面临的问题吗？对一部分人来说是的,他们的数据集几乎总是一个大小,更好的计算机足以让他们轻松解决内存问题,但对另一部分人来说,更好的计算机意味着他们可以搬出更大的数据集,问题并不会得到解决.如果你属于后一种人,你可能得现在就开始熟悉如何在工作中利用数据库技术了.</p>
+<p>如果你有一台内存超级大的计算机,你完全可以尝试一些R可以进行的“大操作”,通过下面的代码查看R的极限</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="secondcircle.html#cb35-1" tabindex="-1"></a>?<span class="st">&quot;Memory-limits&quot;</span></span></code></pre></div>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="firstcircle.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="thirdcircle.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/circle2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
