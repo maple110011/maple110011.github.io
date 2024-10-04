@@ -68,4 +68,5 @@ redirect_from:
 
 # 译介
 - R inferno
-[[html]]((index.html))
+<a href="_pages/index.html">查看HTML页面</a>
+
