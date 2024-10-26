@@ -7,7 +7,7 @@ main:
     url: "/_pages/聚类评价指标"
 
   - title: "YNU相关资源"
-    url: "/assets/YNU_CV.pdf"
+    url: "https://github.com/maple110011/YNU-Resources"
 
   - title: "学术资源库"
     url: "/学术资源库"
