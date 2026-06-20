@@ -107,3 +107,277 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+/* ==========================================================================
+   Tag Cloud
+   ========================================================================== */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    margin: 1em 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.3em 0.8em;
+    font-size: 0.85em;
+    font-family: $sans-serif;
+    color: #224b8d;
+    background-color: #e8f0fe;
+    border-radius: 3px;
+    border: 1px solid #d0dffa;
+    transition: all 0.2s ease;
+}
+
+.tag:hover {
+    color: #fff;
+    background-color: #224b8d;
+    border-color: #224b8d;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Recent Updates
+   ========================================================================== */
+.recent-updates {
+    margin: 1em 0;
+    
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    
+    li {
+        padding: 0.4em 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.95em;
+    }
+    
+    li:last-child {
+        border-bottom: none;
+    }
+}
+
+.update-date {
+    display: inline-block;
+    font-family: $monospace;
+    font-size: 0.85em;
+    color: #888;
+    min-width: 5em;
+    margin-right: 0.8em;
+}
+
+/* ==========================================================================
+   Dark Mode Toggle Button
+   ========================================================================== */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 1.5em;
+    right: 1.5em;
+    z-index: 100;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ==========================================================================
+   Dark Mode Styles
+   ========================================================================== */
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .masthead {
+    background-color: #16213e;
+    border-bottom-color: #2a2a4a;
+}
+
+body.dark-mode .masthead__menu-item a {
+    color: #c0c0e0;
+}
+
+body.dark-mode .page__content a {
+    color: #7ab0e8;
+}
+
+body.dark-mode .page__content h1,
+body.dark-mode .page__content h2,
+body.dark-mode .page__content h3 {
+    color: #e8e8f0;
+    border-bottom-color: #2a2a4a;
+}
+
+body.dark-mode .sidebar {
+    background-color: #1a1a2e;
+}
+
+body.dark-mode .author__name {
+    color: #e0e0f0;
+}
+
+body.dark-mode .author__bio {
+    color: #b0b0c0;
+}
+
+body.dark-mode .author__urls-wrapper a {
+    color: #7ab0e8;
+}
+
+body.dark-mode .tag {
+    color: #7ab0e8;
+    background-color: #1e2a4a;
+    border-color: #2a3a6a;
+}
+
+body.dark-mode .tag:hover {
+    color: #fff;
+    background-color: #3a5a9a;
+    border-color: #3a5a9a;
+}
+
+body.dark-mode .recent-updates li {
+    border-bottom-color: #2a2a4a;
+}
+
+body.dark-mode .update-date {
+    color: #8888aa;
+}
+
+body.dark-mode .footer_site {
+    color: #8888aa;
+    border-top-color: #2a2a4a;
+}
+
+body.dark-mode .footer_site a {
+    color: #7ab0e8;
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: #2a2a4a;
+    color: #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .page__footer {
+    background-color: #16213e;
+    border-top-color: #2a2a4a;
+    color: #8888aa;
+}
+
+body.dark-mode .masthead__menu-item--lg a {
+    color: #e0e0f0;
+}
+
+body.dark-mode hr {
+    border-color: #2a2a4a;
+}
+
+/* ==========================================================================
+   GFM Alerts / Callout Blocks
+   ========================================================================== */
+blockquote {
+    border-left: 4px solid #224b8d;
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    background-color: #f8f9fc;
+}
+
+body.dark-mode blockquote {
+    background-color: #1a1a3e;
+    border-left-color: #3a5a9a;
+}
+
+/* Style blockquotes that start with [!definition], [!proposition], [!tip] etc. */
+blockquote:has([class*="markdown-alert"]) {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+}
+
+/* ==========================================================================
+   Note Pages
+   ========================================================================== */
+.note-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5em 0;
+}
+
+.note-list-item {
+    padding: 1.2em 1em;
+    margin-bottom: 0.8em;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    border-left: 4px solid #224b8d;
+    transition: all 0.2s ease;
+    background-color: #fafafa;
+}
+
+.note-list-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transform: translateX(4px);
+}
+
+.note-list-item .note-title {
+    font-size: 1.15em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+}
+
+.note-list-item .note-title a {
+    color: #224b8d;
+    text-decoration: none;
+}
+
+.note-list-item .note-title a:hover {
+    text-decoration: underline;
+}
+
+.note-list-item .note-excerpt {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.note-list-item .note-meta {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: 0.4em;
+}
+
+body.dark-mode .note-list-item {
+    background-color: #1a1a3e;
+    border-color: #2a2a4a;
+    border-left-color: #3a5a9a;
+}
+
+body.dark-mode .note-list-item .note-title a {
+    color: #7ab0e8;
+}
+
+body.dark-mode .note-list-item .note-excerpt {
+    color: #b0b0c0;
+}
+
+body.dark-mode .note-list-item .note-meta {
+    color: #8888aa;
+}
+
+/* ==========================================================================
+   Publication / Paper Box
+   ========================================================================== */

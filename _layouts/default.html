@@ -3,7 +3,7 @@ layout: compress
 ---
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh-CN" class="no-js">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
@@ -32,11 +32,36 @@ layout: compress
 <div class="footer_site">
 <hr/>
 <div class="footer_copyright">
-  © 2025  枫叶 | 基于&nbsp
+  © 2025-2026 枫叶 | 基于&nbsp
   <a class="page_a"  href="https://github.com/RayeRen/acad-homepage.github.io">
   acad
   </a>&nbsp模板
 </div>
 </div>
+
+<button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="切换深色模式" title="切换深色模式">
+  🌙
+</button>
+
+<script>
+  (function() {
+    const toggle = document.getElementById('dark-mode-toggle');
+    const stored = localStorage.getItem('dark-mode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (stored === 'true' || (!stored && prefersDark)) {
+      document.body.classList.add('dark-mode');
+      toggle.textContent = '☀️';
+    }
+    
+    toggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('dark-mode', isDark);
+      toggle.textContent = isDark ? '☀️' : '🌙';
+    });
+  })();
+</script>
+
   </body>
 </html>

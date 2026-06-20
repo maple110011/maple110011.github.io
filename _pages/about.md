@@ -8,64 +8,56 @@ redirect_from:
   - /about.html
 ---
 
-{% if site.google_scholar_stats_use_cdn %}
-{% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
-{% else %}
-{% assign gsDataBaseUrl = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" %}
-{% endif %}
-{% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
-
 <span class='anchor' id='about-me'></span>
 
-经济统计双料战士，喜欢研究技术性细节，也希望能够利用所学知识对中国经济做一些粗浅的分析
+## 👋 关于我
 
-兴趣方向：
-- 投入产出分析
-- 数理马克思主义经济学
-- 因果推断
-- 各类统计方法
-- 社会主义经济学  
+探索贝叶斯深度学习与计算科学的研究者，喜欢深入技术细节，关注方法论与前沿进展。
 
-# 📝 笔记
-
-笔记在公众号和知乎同步更新，但由于公众号文章修改困难，公众号版初次发布后不再修改，建议阅读会不断修正的知乎版
-
-### 投入产出分析
----
-- 投入产出分析的基本概念
-[[公众号版]](https://mp.weixin.qq.com/s/LH4QVdiMJWZ2umdLo9fCKg)[[知乎版]](https://zhuanlan.zhihu.com/p/712656391)
-- 投入产出方程有经济意义解的存在性条件
-[[公众号版]](https://mp.weixin.qq.com/s/eadBaI0ExAl3tk3WXXy_nw)[[知乎版]](https://zhuanlan.zhihu.com/p/712660692)
-- Perron-Frobenius定理及价格模型
-[[公众号版]](https://mp.weixin.qq.com/s/vs36FGN2_iU6Q4zDSoHSgw)[[知乎版]](https://zhuanlan.zhihu.com/p/712656391)
--	模型假定及无替代定理
-[[公众号版]](https://mp.weixin.qq.com/s/v_6CQAEPwKW8uvaXOgA6cA)[[知乎版]](https://zhuanlan.zhihu.com/p/716125131)
-
-### 矩阵论
 ---
 
-- 矩阵微分与矩阵函数求导
-[[公众号版]](https://mp.weixin.qq.com/s/PElyH3t6GHK5z8vd4b0R5Q)[[知乎版]](https://zhuanlan.zhihu.com/p/692195114)
+## 🔬 研究兴趣
 
-### 马克思主义哲学
+主要聚焦于 **贝叶斯深度学习 (Bayesian Deep Learning)**，具体方向包括：
+
+- 🧠 **贝叶斯神经网络 (BNN)** — 不确定性量化、变分推断、MCMC 方法
+- 📊 **概率编程** — Pyro / NumPyro、PyMC、概率模型设计
+- 🤖 **深度生成模型** — 变分自编码器 (VAE)、归一化流
+- 📈 **贝叶斯非参数方法** — 高斯过程、狄利克雷过程
+- 🔄 **模型可解释性与校准** — 置信度校准、温度缩放、灵敏度分析
+- 🧮 **计算统计** — 高效采样算法、随机优化
+
 ---
 
-- 哲学的精神
-[[公众号版]](https://mp.weixin.qq.com/s/pCnH43zxloHmrspNR8fzfg)
-- 自由与必然
-[[公众号版]](https://mp.weixin.qq.com/s/JSXJD9mnCcge9K1B7XHSCQ)
+## ⏰ 最近更新
 
-### 其他
-- 其他
-[[公众号版]]()[[知乎版]]()
+<div class="recent-updates">
+  <ul>
+    <li><span class="update-date">2026-06</span> 新增译作：<a href="/translations/bdl-position-paper">立场：大规模AI时代需要贝叶斯深度学习</a></li>
+    <li><span class="update-date">2026-06</span> 新增笔记：<a href="/notes/equivalence-relation">等价关系与商集</a>、<a href="/notes/good-set-principle">好集原理</a>、<a href="/notes/random-variable">随机变量定义解读</a></li>
+    <li><span class="update-date">2026-06</span> 网站重构，新增深色模式与标签分类</li>
+  </ul>
+</div>
 
-# 📝 杂谈
+---
 
-收录一些不成熟的观点
+## 🏷️ 分类速览
 
-- 非市场化改革的可能性
-[[公众号版]](https://mp.weixin.qq.com/s/DzBRkPlM1_7ZWwEwvuVSoA)
+<div class="tag-cloud">
+  <span class="tag">贝叶斯深度学习</span>
+  <span class="tag">概率编程</span>
+  <span class="tag">不确定性量化</span>
+  <span class="tag">MCMC</span>
+  <span class="tag">变分推断</span>
+  <span class="tag">Pyro</span>
+  <span class="tag">NumPyro</span>
+  <span class="tag">高斯过程</span>
+  <span class="tag">模型校准</span>
+  <span class="tag">数学</span>
+  <span class="tag">测度论</span>
+  <span class="tag">概率论</span>
+</div>
 
-# 译介
-- R inferno
-[查看HTML页面]({{ site.baseurl }}/_pages/index.html)
+<p style="margin-top: 1.2em;">
+  <a href="/notes" class="page_a" style="font-size: 1.05em;">→ 查看全部笔记</a>
+</p>

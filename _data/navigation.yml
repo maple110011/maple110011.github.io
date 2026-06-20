@@ -1,21 +1,18 @@
 # main links links
 main:
-  - title: "统计学文章"
-    url: "/_pages/聚类评价指标"
+  - title: "🏠 主页"
+    url: "/"
 
-  - title: "经济学文章"
-    url: "/_pages/聚类评价指标"
+  - title: "📖 笔记"
+    url: "/notes"
 
-  - title: "YNU相关资源"
-    url: "https://github.com/maple110011/YNU-Resources"
+  - title: "📝 译介"
+    url: "/translations"
 
-  - title: "学术资源库"
+  - title: "🏆 成果"
+    url: "/publications"
+
+  - title: "📦 学术资源库"
     url: "https://github.com/maple110011/Academic-Repository"
-    
-  - title: "发表"
-    url: "/zh-cn/#-ryjx"
-
-  - title: "译介"
-    url: "/_pages/计算马经方法概览综述.md"
 
 

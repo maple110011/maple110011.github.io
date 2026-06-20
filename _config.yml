@@ -7,9 +7,8 @@
 
 # Site Settings
 title                    : "枫叶"
-description              : "兴趣使然的探索者"
+description              : "探索贝叶斯深度学习与计算科学"
 repository               : "maple110011.github.io"
-google_scholar_stats_use_cdn : false
 
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
@@ -25,37 +24,8 @@ author:
   avatar           : "images/标准头像.jpg"
   bio              : "云南大学"
   location         : "云南 昆明"
-  pubmed           : 
-  googlescholar    : "未来会有的"
-  email            : "fengyeac001@gmail.com"
-  researchgate     : "先别急"
-  uri              : 
-  bitbucket        :
-  codepen          :
-  dribbble         :
-  flickr           :
-  facebook         :
-  foursquare       :
   github           : "maple110011"
-  google_plus      :
-  keybase          :
-  instagram        :
-  impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
-  lastfm           :
-  linkedin         : # e.g., "linkedin username"
-  dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
-  orcid            : #"https://orcid.org/0000-0001-9658-209X"
-  pinterest        :
-  soundcloud       :
   stackexchange    : "https://math.stackexchange.com/users/1158653/maple"
-  steam            :
-  tumblr           :
-  twitter          : 
-  vine             :
-  weibo            :
-  xing             :
-  youtube          :
-  wikipedia        :
   zhihu            : "https://www.zhihu.com/people/feng-xie-wei-he-er-luo"
 
 
