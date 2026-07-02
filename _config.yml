@@ -11,12 +11,14 @@ description              : "探索贝叶斯深度学习与计算科学"
 repository               : "maple110011.github.io"
 
 # google analytics
-google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
+google_analytics_id      : G-XXXXXXXXXX # 替换为你的 Google Analytics 4 测量 ID
 
 # SEO Related
-google_site_verification :  fQZQD0EwLaSOrp3EbALt2rjxHEY9pUvWuh1fS96xgNk # get google_site_verification from https://search.google.com/search-console/about
-bing_site_verification   : 56D1B3DBCF345410DA9431AFE01788E7 # get bing_site_verification from https://www.bing.com/webmasters/about
-baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index
+google_site_verification : fQZQD0EwLaSOrp3EbALt2rjxHEY9pUvWuh1fS96xgNk
+bing_site_verification   : 56D1B3DBCF345410DA9431AFE01788E7
+baidu_site_verification  :  # 填写你的百度站长验证码
+yandex_site_verification :  # 填写你的 Yandex Webmaster 验证码
+naver_site_verification  :  # 填写你的 Naver Search Advisor 验证码
 
 # Site Author
 author:

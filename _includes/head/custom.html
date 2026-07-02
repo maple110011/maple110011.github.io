@@ -25,4 +25,15 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<!-- Google Analytics -->
+{% if site.google_analytics_id and site.google_analytics_id != "G-XXXXXXXXXX" %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics_id }}');
+</script>
+{% endif %}
+
 <!-- end custom head snippets -->
