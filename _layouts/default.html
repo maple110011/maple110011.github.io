@@ -7,6 +7,15 @@ layout: compress
   <head>
     {% include head.html %}
     {% include head/custom.html %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "枫叶",
+      "url": "https://maple110011.github.io",
+      "description": "探索贝叶斯深度学习与计算科学"
+    }
+    </script>
   </head>
 
   <body>
@@ -43,24 +52,72 @@ layout: compress
   🌙
 </button>
 
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" title="回到顶部">
+  ↑
+</button>
+
 <script>
-  (function() {
-    const toggle = document.getElementById('dark-mode-toggle');
-    const stored = localStorage.getItem('dark-mode');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (stored === 'true' || (!stored && prefersDark)) {
-      document.body.classList.add('dark-mode');
-      toggle.textContent = '☀️';
+(function() {
+  // Dark mode toggle
+  const toggle = document.getElementById('dark-mode-toggle');
+  const stored = localStorage.getItem('dark-mode');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (stored === 'true' || (!stored && prefersDark)) {
+    document.body.classList.add('dark-mode');
+    toggle.textContent = '☀️';
+  }
+  
+  toggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('dark-mode', isDark);
+    toggle.textContent = isDark ? '☀️' : '🌙';
+  });
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
     }
-    
-    toggle.addEventListener('click', function() {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      localStorage.setItem('dark-mode', isDark);
-      toggle.textContent = isDark ? '☀️' : '🌙';
-    });
-  })();
+  });
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Auto-generate TOC for long content pages
+  const content = document.querySelector('.page__content');
+  if (content) {
+    const headings = content.querySelectorAll('h1, h2, h3');
+    if (headings.length >= 3) {
+      var tocDiv = document.createElement('div');
+      tocDiv.className = 'toc';
+      var tocTitle = document.createElement('div');
+      tocTitle.className = 'toc__title';
+      tocTitle.textContent = '目录';
+      tocDiv.appendChild(tocTitle);
+      var tocList = document.createElement('ul');
+      tocList.className = 'toc__list';
+      headings.forEach(function(h, i) {
+        if (!h.id) {
+          h.id = 'toc-' + i;
+        }
+        var li = document.createElement('li');
+        li.className = 'toc__item toc__' + h.tagName.toLowerCase();
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+      tocDiv.appendChild(tocList);
+      content.insertBefore(tocDiv, content.firstChild);
+    }
+  }
+})();
 </script>
 
   </body>

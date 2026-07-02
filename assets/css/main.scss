@@ -540,3 +540,276 @@ body.dark-mode .note-list-item .note-excerpt {
 /* ==========================================================================
    Publication / Paper Box
    ========================================================================== */
+
+/* ==========================================================================
+   Table of Contents (TOC)
+   ========================================================================== */
+.toc {
+    background: #f8f9fc;
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #224b8d;
+    border-radius: 6px;
+    padding: 1em 1.2em;
+    margin-bottom: 2em;
+}
+
+.toc__title {
+    font-size: 1em;
+    font-weight: 700;
+    color: #224b8d;
+    margin-bottom: 0.6em;
+    font-family: "Source Han Sans", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+}
+
+.toc__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc__item {
+    padding: 0.15em 0;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.toc__item a {
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+    transition: border-color 0.2s;
+}
+
+.toc__item a:hover {
+    border-bottom-color: #224b8d;
+    color: #224b8d;
+}
+
+.toc__h2 {
+    padding-left: 1.2em;
+}
+
+.toc__h3 {
+    padding-left: 2.4em;
+    font-size: 0.88em;
+}
+
+body.dark-mode .toc {
+    background: #1a1a3e;
+    border-color: #2a2a4a;
+    border-left-color: #3a5a9a;
+}
+
+body.dark-mode .toc__title {
+    color: #7ab0e8;
+}
+
+body.dark-mode .toc__item a {
+    color: #c0c0e0;
+}
+
+body.dark-mode .toc__item a:hover {
+    color: #7ab0e8;
+    border-bottom-color: #7ab0e8;
+}
+
+/* ==========================================================================
+   Back to Top Button
+   ========================================================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 5em;
+    right: 1.5em;
+    z-index: 100;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background-color: #224b8d;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 4px 16px rgba(34, 75, 141, 0.4);
+    background-color: #1a3a7a;
+}
+
+body.dark-mode .back-to-top {
+    background-color: #3a5a9a;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .back-to-top:hover {
+    background-color: #4a6aaa;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+}
+
+/* ==========================================================================
+   Notes Tag Filter
+   ========================================================================== */
+.tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 1em 0;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #eee;
+}
+
+.tag-filter .tag {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.tag-filter .tag.active {
+    color: #fff;
+    background-color: #224b8d;
+    border-color: #224b8d;
+}
+
+body.dark-mode .tag-filter {
+    border-bottom-color: #2a2a4a;
+}
+
+body.dark-mode .tag-filter .tag.active {
+    background-color: #3a5a9a;
+    border-color: #3a5a9a;
+}
+
+.note-list-item.filtered-out {
+    display: none;
+}
+
+/* ==========================================================================
+   Mobile Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+    .page__content {
+        font-size: 1em;
+        line-height: 1.8;
+    }
+
+    .page__content h1 {
+        font-size: 1.35em;
+    }
+
+    .page__content h2 {
+        font-size: 1.15em;
+    }
+
+    .sidebar {
+        float: none !important;
+        width: 100% !important;
+        margin: 1em 0 0 !important;
+        clear: both;
+    }
+
+    .sidebar.sticky {
+        position: relative !important;
+        top: auto !important;
+    }
+
+    .author__avatar img {
+        max-width: 100px;
+    }
+
+    .note-list-item {
+        padding: 1em;
+    }
+
+    .note-list-item .note-excerpt {
+        font-size: 0.88em;
+    }
+
+    .toc {
+        padding: 0.8em 1em;
+    }
+
+    .toc__item {
+        font-size: 0.85em;
+    }
+
+    .back-to-top,
+    .dark-mode-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1em;
+    }
+
+    .back-to-top {
+        bottom: 4.5em;
+        right: 1em;
+    }
+
+    .dark-mode-toggle {
+        bottom: 1em;
+        right: 1em;
+    }
+
+    .page__content pre {
+        font-size: 0.85em;
+        padding: 0.8em;
+    }
+
+    /* Formula overflow scroll on mobile */
+    .page__content .MathJax_Display,
+    .katex-display {
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-width: 100%;
+    }
+
+    /* Masthead mobile */
+    .masthead__menu-item--lg {
+        display: block;
+        width: 100%;
+    }
+
+    .visible-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.3em;
+    }
+
+    .visible-links li {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .page__content {
+        font-size: 0.95em;
+    }
+
+    .page__content h1 {
+        font-size: 1.2em;
+    }
+
+    .visible-links li {
+        font-size: 0.82em;
+    }
+
+    .tag {
+        font-size: 0.78em;
+        padding: 0.2em 0.55em;
+    }
+}

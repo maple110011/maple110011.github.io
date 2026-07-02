@@ -4,39 +4,25 @@
 <link rel="manifest" href="/images/site.webmanifest">
 
 <meta name="msapplication-TileColor" content="#000000">
-<meta name="msapplication-TileImage" content="/images/mstile-144x144.png?v=M44lzPylqQ">
-<meta name="msapplication-config" content="/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="msapplication-TileImage" href="/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" href="/images/browserconfig.xml?v=M44lzPylqQ">
 <meta name="theme-color" content="#ffffff">
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: {
-    equationNumbers: { autoNumber: "all" },
-    extensions: ["AMScd.js", "color.js"]
-  },
-  tex2jax: {
-    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-    processEscapes: true
-  },
-  "HTML-CSS": { matchFontHeight: false },
-  SVG: { matchFontHeight: false }
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML'></script>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <script>
-(function() {
-  function retypeset() {
-    if (typeof MathJax !== 'undefined' && MathJax.Hub) {
-      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    } else {
-      setTimeout(retypeset, 300);
-    }
-  }
-  if (document.readyState === 'complete') {
-    retypeset();
-  } else {
-    window.addEventListener('load', retypeset);
-  }
-})();
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });
+});
 </script>
 
 <!-- end custom head snippets -->
