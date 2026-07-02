@@ -28,6 +28,24 @@ author_profile: true
 
 <ul class="note-list">
   <li class="note-list-item">
+    <div class="note-title"><a href="/notes/optimal-transport-1">最优传输笔记（一）：Monge问题、Kantorovich松弛与Wasserstein距离</a></div>
+    <div class="note-excerpt">从Monge问题出发，引入Kantorovich松弛与coupling概念，证明KOT的紧性与存在性，定义Wasserstein距离并证明其度量性质与上界估计。</div>
+    <div class="note-meta">
+      <span class="tag" style="font-size:0.8em;">数学</span>
+      <span class="tag" style="font-size:0.8em;">最优传输</span>
+      <span class="tag" style="font-size:0.8em;">测度论</span>
+    </div>
+  </li>
+  <li class="note-list-item">
+    <div class="note-title"><a href="/notes/optimal-transport-2">最优传输笔记（二）：KOT解的存在性、Wasserstein距离的性质与上界估计</a></div>
+    <div class="note-excerpt">深入研究KOT解的存在性条件，证明Wasserstein距离的度量公理（非负性、对称性、正定性、三角不等式），并建立Wasserstein距离与全变差距离之间的控制不等式。</div>
+    <div class="note-meta">
+      <span class="tag" style="font-size:0.8em;">数学</span>
+      <span class="tag" style="font-size:0.8em;">最优传输</span>
+      <span class="tag" style="font-size:0.8em;">Wasserstein距离</span>
+    </div>
+  </li>
+  <li class="note-list-item">
     <div class="note-title"><a href="/notes/equivalence-relation">等价关系与商集</a></div>
     <div class="note-excerpt">从分类的思想出发，探讨等价关系与商集的基本概念，以及第一同构定理的普遍形式。</div>
     <div class="note-meta">

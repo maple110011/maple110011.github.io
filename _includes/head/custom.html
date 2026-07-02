@@ -1,11 +1,11 @@
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-<link rel="manifest" href="images/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="manifest" href="/images/site.webmanifest">
 
 <meta name="msapplication-TileColor" content="#000000">
-<meta name="msapplication-TileImage" content="images/mstile-144x144.png?v=M44lzPylqQ">
-<meta name="msapplication-config" content="images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="msapplication-TileImage" content="/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="/images/browserconfig.xml?v=M44lzPylqQ">
 <meta name="theme-color" content="#ffffff">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -21,6 +21,22 @@ MathJax.Hub.Config({
   SVG: { matchFontHeight: false }
 });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML' async></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML'></script>
+<script>
+(function() {
+  function retypeset() {
+    if (typeof MathJax !== 'undefined' && MathJax.Hub) {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    } else {
+      setTimeout(retypeset, 300);
+    }
+  }
+  if (document.readyState === 'complete') {
+    retypeset();
+  } else {
+    window.addEventListener('load', retypeset);
+  }
+})();
+</script>
 
 <!-- end custom head snippets -->
