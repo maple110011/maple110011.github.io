@@ -4,6 +4,7 @@ permalink: /translations/bdl-position-paper
 title: "立场：大规模AI时代需要贝叶斯深度学习"
 tags: [贝叶斯深度学习, 深度学习, 机器学习, 不确定性量化]
 original: "Papamarkou et al. - 2024 - Position: Bayesian Deep Learning Is Needed in the Age of Large-Scale AI"
+toc: true
 ---
 
 <span class='anchor' id='bdl-position'></span>
