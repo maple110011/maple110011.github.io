@@ -1,18 +1,15 @@
 # main links links
 main:
-  - title: "🏠 主页"
+  - title: "主页"
     url: "/"
 
-  - title: "📖 笔记"
+  - title: "笔记"
     url: "/notes"
 
-  - title: "📝 译介"
+  - title: "译介"
     url: "/translations"
 
-  - title: "🏆 成果"
+  - title: "成果"
     url: "/publications"
-
-  - title: "📦 学术资源库"
-    url: "https://github.com/maple110011/Academic-Repository"
 
 

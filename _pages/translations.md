@@ -1,13 +1,13 @@
 ---
 permalink: /translations
-title: "📝 译介"
+title: "译介"
 excerpt: "学术文献翻译"
 author_profile: true
 ---
 
 <span class='anchor' id='translations'></span>
 
-## 📝 译介
+## 译介
 
 这里收录我对英文学术文献的翻译与解读，涵盖贝叶斯统计、深度学习、机器学习等领域的前沿论文。
 

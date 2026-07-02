@@ -1,13 +1,13 @@
 ---
 permalink: /notes
-title: "📖 笔记"
+title: "笔记"
 excerpt: "学习笔记与思考"
 author_profile: true
 ---
 
 <span class='anchor' id='notes'></span>
 
-## 📖 笔记
+## 笔记
 
 这里收录我的学习笔记，涵盖数学、概率论、统计学与机器学习等领域。
 

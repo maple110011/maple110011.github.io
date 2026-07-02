@@ -379,5 +379,164 @@ body.dark-mode .note-list-item .note-meta {
 }
 
 /* ==========================================================================
+   Content Page Typography (Notes, Translations, Detail Pages)
+   ========================================================================== */
+
+.page__content {
+    font-family: "Source Han Serif", "Noto Serif SC", "Georgia", "Times New Roman", serif;
+    font-size: 1.05em;
+    line-height: 1.9;
+    color: #333;
+}
+
+.page__content p {
+    margin: 0 0 1.2em;
+    text-align: justify;
+}
+
+.page__content h1 {
+    font-size: 1.6em;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid #224b8d;
+    font-family: "Source Han Sans", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.page__content h2 {
+    font-size: 1.3em;
+    margin-top: 1.6em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #ddd;
+    font-family: "Source Han Sans", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.page__content h3 {
+    font-size: 1.1em;
+    margin-top: 1.4em;
+    margin-bottom: 0.4em;
+    font-family: "Source Han Sans", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    color: #224b8d;
+}
+
+/* Styled callout blocks for definition/proposition/theorem */
+blockquote:has([class*="definition"]),
+blockquote:has([class*="proposition"]),
+blockquote:has([class*="theorem"]),
+blockquote:has([class*="tip"]) {
+    border-left: 4px solid #224b8d;
+    border-radius: 0 6px 6px 0;
+    padding: 0.8em 1.2em;
+    margin: 1.2em 0;
+    background-color: #f4f7fb;
+    font-style: normal;
+}
+
+body.dark-mode blockquote:has([class*="definition"]),
+body.dark-mode blockquote:has([class*="proposition"]),
+body.dark-mode blockquote:has([class*="theorem"]),
+body.dark-mode blockquote:has([class*="tip"]) {
+    background-color: #1a1a3e;
+    border-left-color: #3a5a9a;
+}
+
+/* Math formula spacing */
+.page__content .MathJax {
+    font-size: 1.05em !important;
+}
+
+.page__content .MathJax_Display {
+    margin: 1.2em 0 !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.3em 0;
+}
+
+/* Code blocks in notes */
+.page__content pre,
+.page__content code {
+    font-size: 0.92em;
+}
+
+.page__content pre {
+    border-radius: 4px;
+    padding: 1em;
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+}
+
+body.dark-mode .page__content pre {
+    background-color: #1e1e2e;
+    border-color: #2a2a4a;
+}
+
+/* Improve note list card styling */
+.note-list-item {
+    padding: 1.2em 1.2em;
+    margin-bottom: 1em;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    border-left: 4px solid #224b8d;
+    transition: all 0.2s ease;
+    background-color: #fafafa;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.note-list-item:hover {
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transform: translateX(4px);
+}
+
+.note-list-item .note-title {
+    font-size: 1.15em;
+    font-weight: 600;
+    margin-bottom: 0.4em;
+}
+
+.note-list-item .note-excerpt {
+    font-size: 0.92em;
+    color: #555;
+    line-height: 1.7;
+}
+
+body.dark-mode .note-list-item {
+    background-color: #1a1a3e;
+    border-color: #2a2a4a;
+    border-left-color: #3a5a9a;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .note-list-item:hover {
+    box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .note-list-item .note-excerpt {
+    color: #b0b0c0;
+}
+
+/* Author sidebar improvements */
+.sidebar {
+    font-family: "Source Han Sans", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+}
+
+.author__name {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+/* Tag improvements */
+.tag {
+    font-size: 0.82em;
+    padding: 0.25em 0.7em;
+    font-family: "Source Han Sans", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================================================
    Publication / Paper Box
    ========================================================================== */
