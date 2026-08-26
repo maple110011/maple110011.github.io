@@ -9,7 +9,7 @@ main:
   - title: "译介"
     url: "/translations"
 
-  - title: "博客"
+  - title: "日志"
     url: "/blog"
 
   - title: "资源"
