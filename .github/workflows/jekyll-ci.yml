@@ -19,25 +19,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 说明：仓库的 Gemfile.lock 是在 Windows（x64-mingw-ucrt）上生成的，
-      # 未包含 x86_64-linux 平台条目，Ubuntu 上 bundle install 会失败（exit 16）。
-      # 因此这里不走 bundle install，改为按 github-pages 版本直装（与 lock 中
-      # 的 github-pages 227 / Jekyll 3.9.2 一致）。彻底修法见维护手册第五节：
-      # 找任意 Ruby 环境执行一次 bundle lock --add-platform x86_64-linux 后恢复
-      # setup-ruby 的 bundler-cache 用法。
+      # 说明：仓库 Gemfile.lock 仅含 Windows 平台（x64-mingw-ucrt），Ubuntu 上
+      # 无法 bundle install；且脱离 GitHub Pages 运行时环境裸跑 jekyll 会因
+      # github-pages 全家桶插件的运行时假设而出错。故采用官方同款构建器
+      # （与经典 Pages 构建完全一致的引擎与环境）做推送校验。
+      # 彻底修法见维护手册第五节：补 x86_64-linux 平台锁后可换回 setup-ruby。
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Build site (official pages builder)
+        uses: actions/jekyll-build-pages@v1
         with:
-          ruby-version: '3.1'
-
-      - name: Install GitHub Pages toolchain (pinned)
-        run: gem install github-pages -v 227 --no-document
-
-      - name: Build site
-        run: jekyll build --trace
-        env:
-          JEKYLL_ENV: production
+          source: .
+          destination: ./_site
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
