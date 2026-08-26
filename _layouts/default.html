@@ -49,7 +49,7 @@ layout: compress
 </div>
 
 <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="切换深色模式" title="切换深色模式">
-  🌙
+  ◐
 </button>
 
 <button id="back-to-top" class="back-to-top" aria-label="回到顶部" title="回到顶部">
@@ -62,17 +62,14 @@ layout: compress
   const toggle = document.getElementById('dark-mode-toggle');
   const stored = localStorage.getItem('dark-mode');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
+
   if (stored === 'true' || (!stored && prefersDark)) {
     document.body.classList.add('dark-mode');
-    toggle.textContent = '☀️';
   }
-  
+
   toggle.addEventListener('click', function() {
     document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    localStorage.setItem('dark-mode', isDark);
-    toggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
   });
 
   // Back to top
@@ -86,6 +83,50 @@ layout: compress
   });
   backToTop.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// Transform Obsidian-style callouts ([!definition] 等) into styled blocks.
+// Runs synchronously during parsing, i.e. before KaTeX auto-render on DOMContentLoaded,
+// so math inside callout titles is still rendered.
+(function() {
+  var LABELS = {
+    definition: '定义', theorem: '定理', proposition: '命题', lemma: '引理',
+    corollary: '推论', axiom: '公理', example: '例', exercise: '练习',
+    tip: '技巧', note: '注记', remark: '注', question: '问题',
+    info: '说明', abstract: '摘要', summary: '小结',
+    warning: '注意', caution: '当心', danger: '警告', attention: '注意',
+    success: '要点', check: '要点', quote: '引文'
+  };
+  document.querySelectorAll('blockquote').forEach(function(bq) {
+    var p = bq.querySelector('p');
+    if (!p) return;
+    var textNode = null;
+    for (var n = p.firstChild; n; n = n.nextSibling) {
+      if (n.nodeType === 3 && /\S/.test(n.nodeValue)) { textNode = n; break; }
+      if (n.nodeType === 3 && /^\s*\[!/.test(n.nodeValue)) { textNode = n; break; }
+    }
+    if (!textNode) return;
+    var m = textNode.nodeValue.match(/^\s*\[!(\w+)\]\s*/);
+    if (!m) return;
+    var type = m[1].toLowerCase();
+    var after = textNode.nodeValue.slice(m[0].length);
+    var nl = after.indexOf('\n');
+    var title = (nl >= 0 ? after.slice(0, nl) : '').trim();
+    textNode.nodeValue = nl >= 0 ? after.slice(nl + 1) : '';
+    bq.classList.add('callout', 'callout--' + type);
+    var titleDiv = document.createElement('div');
+    titleDiv.className = 'callout__title';
+    var label = document.createElement('span');
+    label.className = 'callout__label';
+    label.textContent = LABELS[type] || m[1].toUpperCase();
+    titleDiv.appendChild(label);
+    if (title) {
+      var t = document.createElement('span');
+      t.textContent = title;
+      titleDiv.appendChild(t);
+    }
+    bq.insertBefore(titleDiv, bq.firstChild);
   });
 })();
 </script>
