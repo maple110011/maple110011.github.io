@@ -17,7 +17,7 @@ toc: true
 
 ## 1. 引言
 
-贝叶斯推断的根源可以追溯到18世纪，以托马斯·贝叶斯在概率论领域的基础性工作为基础。贝叶斯定理于18世纪60年代（Bayes, 1763）在其逝世后提出，为统计推理的概率方法奠定了基础。从高层次来看，贝叶斯定理描述了如何在给定证据后更新信念。形式上，贝叶斯定理将后验概率密度函数 $p(\pmb{\theta}|\mathcal{D})$ 表示为在给定证据（训练数据集）$\mathcal{D}$ 下，在参数值 $\pmb{\theta} \in \mathbb{R}^{\nu}$ 处的函数，它是三个概率密度函数的函数，即考虑证据 $\mathcal{D}$ 之前 $\pmb{\theta}$ 的先验 $p(\pmb{\theta})$，给定参数值 $\pmb{\theta}$ 下证据 $\mathcal{D}$ 的似然 $p(\mathcal{D}|\pmb{\theta})$，以及在任何参数值下证据 $\mathcal{D}$ 的边际概率密度函数：
+贝叶斯推断的根源可以追溯到18世纪，以托马斯·贝叶斯在概率论领域的基础性工作为基础。贝叶斯定理于18世纪60年代（Bayes, 1763）在其逝世后提出，为统计推理的概率方法奠定了基础。从高层次来看，贝叶斯定理描述了如何在给定证据后更新信念。形式上，贝叶斯定理将后验概率密度函数 $p(\pmb{\theta} \mid \mathcal{D})$ 表示为在给定证据（训练数据集）$\mathcal{D}$ 下，在参数值 $\pmb{\theta} \in \mathbb{R}^{\nu}$ 处的函数，它是三个概率密度函数的函数，即考虑证据 $\mathcal{D}$ 之前 $\pmb{\theta}$ 的先验 $p(\pmb{\theta})$，给定参数值 $\pmb{\theta}$ 下证据 $\mathcal{D}$ 的似然 $p(\mathcal{D} \mid \pmb{\theta})$，以及在任何参数值下证据 $\mathcal{D}$ 的边际概率密度函数：
 
 $$
 p (\boldsymbol {\theta} | \mathcal {D}) = \frac {p (\mathcal {D} | \boldsymbol {\theta}) p (\boldsymbol {\theta})}{p (\mathcal {D})}.
@@ -328,7 +328,7 @@ $$
 \tilde {\pmb {\theta}} = \underset {\pmb {\theta} \in \mathbb {R} ^ {\nu}} {\mathrm {a r g m i n}} \mathcal {L} (\pmb {\theta}) = \underset {\pmb {\theta} \in \mathbb {R} ^ {\nu}} {\mathrm {a r g m i n}} \left(- \log p (\pmb {\theta} \mid \mathcal {D})\right) = \underset {\pmb {\theta} \in \mathbb {R} ^ {\nu}} {\mathrm {a r g m i n}} \left(- \log p (\mathcal {D} \mid \pmb {\theta}) - \log p (\pmb {\theta})\right),
 $$
 
-其中 $\theta \in \mathbb{R}^{\nu}$ 是神经网络参数，$\mathcal{D}$ 表示训练数据集。负对数似然 $-\log p(\mathcal{D}|\boldsymbol{\theta})$ 可能对应交叉熵损失，而高斯先验 $-\log p(\theta)$ 对应标准的 $\ell_2$ 正则化或权重衰减。在从不同初始化找到不同的局部解 $\tilde{\theta}_1,\dots ,\tilde{\theta}_s$ 后，对预测分布进行平均，以对测试输入 $x^{\prime}$ 进行预测：
+其中 $\theta \in \mathbb{R}^{\nu}$ 是神经网络参数，$\mathcal{D}$ 表示训练数据集。负对数似然 $-\log p(\mathcal{D} \mid \boldsymbol{\theta})$ 可能对应交叉熵损失，而高斯先验 $-\log p(\theta)$ 对应标准的 $\ell_2$ 正则化或权重衰减。在从不同初始化找到不同的局部解 $\tilde{\theta}_1,\dots ,\tilde{\theta}_s$ 后，对预测分布进行平均，以对测试输入 $x^{\prime}$ 进行预测：
 
 $$
 p (\mathbf {y} \mid \mathbf {x} ^ {\prime}, \mathcal {D}) = \frac {1}{s} \sum_ {i = 1} ^ {s} p (\mathbf {y} \mid \mathbf {x} ^ {\prime}, \tilde {\boldsymbol {\theta}} _ {i}). \tag {4}
