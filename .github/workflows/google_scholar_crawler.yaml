@@ -1,11 +1,15 @@
 name: Get Citation Data
 
-on: 
- page_build: 
- schedule:
-  - cron:  '0 8 * * *'
- workflow_dispatch:
+# 说明：此前每次 push（page_build）与每日 08:00 都会运行，且依赖
+# secrets.GOOGLE_SCHOLAR_ID。当前站点已不展示引用数据（成果页为手写），
+# 故暂停自动触发；需要抓取时在 Actions 页面手动 Run，或恢复下方注释。
 
+on:
+  workflow_dispatch:
+
+# 恢复每日定时抓取时，取消以下注释：
+# schedule:
+#   - cron: '0 8 * * *'
 
 jobs:
   build:

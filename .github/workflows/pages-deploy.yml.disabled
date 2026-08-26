@@ -1,0 +1,52 @@
+name: Deploy to GitHub Pages
+
+# 启用方法（两步）：
+# 1) 仓库 Settings → Pages → Build and deployment → Source 改为 "GitHub Actions"
+# 2) 将本文件重命名为 pages-deploy.yml，并删除 jekyll-ci.yml 中的 push 触发
+#    （保留 workflow_dispatch 作为手动构建检查即可），避免同一 push 触发两条流水线。
+# 说明：切换后，经典 Jekyll 集成器将不再负责部署；Ruby 版本与本文件保持一致。
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
