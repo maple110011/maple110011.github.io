@@ -4,6 +4,8 @@ permalink: /notes/optimal-transport-2/
 title: "最优传输笔记（二）：KOT解的存在性、Wasserstein距离的性质与上界估计"
 tags: [数学, 最优传输, 测度论, Wasserstein距离]
 toc: true
+date: 2026-06-23
+excerpt: 深入研究KOT解的存在性条件，证明Wasserstein距离的度量公理（非负性、对称性、正定性、三角不等式），并建立Wasserstein距离与全变差距离之间的控制不等式。
 ---
 
 上一篇笔记中，我们得到了KOT

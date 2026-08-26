@@ -90,6 +90,18 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
+# Collections（内容集合：列表页与主页动态由 Liquid 自动汇总）
+collections:
+  notes:
+    output: true
+    permalink: /notes/:name/
+  logs:
+    output: true
+    permalink: /blog/:name/
+  translations:
+    output: true
+    permalink: /translations/:name/
+
 # Defaults
 defaults:
   # _pages
@@ -99,6 +111,29 @@ defaults:
     values:
       layout: default
       author_profile: true
+  # 笔记集合
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: default
+      author_profile: true
+      toc: true
+  # 日志集合
+  - scope:
+      path: ""
+      type: logs
+    values:
+      layout: default
+      author_profile: true
+  # 译作集合
+  - scope:
+      path: ""
+      type: translations
+    values:
+      layout: default
+      author_profile: true
+      toc: true
 
 
 # Sass/SCSS

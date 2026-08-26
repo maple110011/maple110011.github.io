@@ -4,6 +4,8 @@ permalink: /notes/good-set-principle/
 title: "好集原理"
 tags: [数学, 测度论, 概率论, 证明技巧]
 toc: true
+date: 2026-06-25
+excerpt: 测度论与概率论中一种重要的证明技巧——好集原理的形式化描述与典型应用，以及 $\pi-\lambda$ 定理的证明。
 ---
 
 <span class='anchor' id='good-set-principle'></span>

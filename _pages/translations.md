@@ -11,28 +11,19 @@ author_profile: true
 
 这里收录我对英文学术文献的翻译与解读，涵盖贝叶斯统计、深度学习、机器学习等领域的前沿论文。
 
-### 分类
-
-<div class="tag-cloud">
-  <span class="tag">贝叶斯深度学习</span>
-  <span class="tag">深度学习</span>
-  <span class="tag">机器学习</span>
-  <span class="tag">统计</span>
-</div>
-
----
-
 ### 译作列表
 
 <ul class="note-list">
+{%- assign items = site.translations | sort: 'date' | reverse -%}
+{%- for p in items %}
   <li class="note-list-item">
-    <div class="note-title"><a href="/translations/bdl-position-paper">立场：大规模AI时代需要贝叶斯深度学习</a></div>
-    <div class="note-excerpt">全面论述贝叶斯深度学习(BDL)的立场论文，回顾BDL在不确定性量化、数据效率、模型适应性等方面的优势，分析当前挑战（后验计算、先验指定、可扩展性），并展望未来研究方向，包括混合贝叶斯方法、深度核过程、大语言模型与BDL结合等前沿课题。</div>
+    <div class="note-title"><a href="{{ p.url }}">{{ p.title }}</a></div>
+    {% if p.excerpt %}<div class="note-excerpt">{{ p.excerpt }}</div>{% endif %}
     <div class="note-meta">
-      <span class="tag">贝叶斯深度学习</span>
-      <span class="tag">深度学习</span>
-      <span class="tag">不确定性量化</span>
-      <span class="note-meta-src">原文：Papamarkou et al., 2024</span>
+      <span class="tag">{{ p.date | date: '%Y-%m-%d' }}</span>
+      {%- for t in p.tags %} <span class="tag">{{ t }}</span>{% endfor %}
+      {%- if p.original %} <span class="note-meta-src">原文：{{ p.original }}</span>{% endif %}
     </div>
   </li>
+{% endfor -%}
 </ul>

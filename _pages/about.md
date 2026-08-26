@@ -43,9 +43,9 @@ redirect_from:
 
 <div class="recent-updates">
   <ul>
-    <li><span class="update-date">2026-08-27</span> 新增日志：<a href="/blog/gpu-first-experiment/">计算卡初体验——超算平台上的一次小型实验复盘</a></li>
-    <li><span class="update-date">2026-08-27</span> 成果页新增项目：<a href="https://github.com/maple110011/dsh-obsidian-math" target="_blank" rel="noopener">dsh-obsidian-math</a>、<a href="https://github.com/maple110011/experiment-standards" target="_blank" rel="noopener">experiment-standards</a></li>
-    <li><span class="update-date">2026-06-28</span> 新增译作：<a href="/translations/bdl-position-paper/">立场：大规模AI时代需要贝叶斯深度学习</a></li>
-    <li><span class="update-date">2026-06-25</span> 新增笔记：<a href="/notes/equivalence-relation/">等价关系与商集</a>、<a href="/notes/good-set-principle/">好集原理</a>、<a href="/notes/random-variable/">随机变量定义解读</a></li>
+  {%- assign merged = site.notes | concat: site.logs | concat: site.translations | sort: 'date' | reverse -%}
+  {%- for p in merged limit: 6 %}
+    <li><span class="update-date">{{ p.date | date: '%Y-%m-%d' }}</span>{% case p.collection %}{% when 'notes' %}新笔记：{% when 'logs' %}日志：{% else %}译作：{% endcase %}<a href="{{ p.url }}">{{ p.title | truncate: 36 }}</a></li>
+  {% endfor %}
   </ul>
 </div>

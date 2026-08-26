@@ -4,6 +4,8 @@ permalink: /notes/equivalence-relation/
 title: "等价关系与商集"
 tags: [数学, 抽象代数, 等价关系]
 toc: true
+date: 2026-06-25
+excerpt: 从分类的思想出发，探讨等价关系与商集的基本概念，以及第一同构定理的普遍形式。
 ---
 
 <span class='anchor' id='equivalence-relation'></span>

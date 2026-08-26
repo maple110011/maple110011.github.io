@@ -4,6 +4,8 @@ permalink: /notes/random-variable/
 title: "为什么随机变量是定义在样本空间上的实值可测函数"
 tags: [数学, 概率论, 测度论, 随机变量]
 toc: true
+date: 2026-06-25
+excerpt: 深入解读随机变量的严格定义，阐述如何通过可测映射将抽象概率空间的分析转移到熟悉的实数空间上。
 ---
 
 <span class='anchor' id='random-variable'></span>
