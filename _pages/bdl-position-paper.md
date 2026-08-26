@@ -430,7 +430,7 @@ $$
 
 一些基于方向统计的先验已被探索用于 BNN（Sunde, 2023），但尚未得到广泛采用。同样，杰弗里斯先验（Jeffreys priors）（Ibrahim & Laud, 1991）在此背景下也未被广泛使用。尽管 Zellner 的 g-先验（Zellner, 1986）和 g-先验混合（Li & Clyde, 2018）在线性模型中非常流行，但它们最近才在 BDL 中引起关注（Antorán et al., 2022）。
 
-在贝叶斯统计中，模型不确定性已被广泛研究了几十年（Hoeting et al., 1998; 1999; Wasserman, 2000）。在该框架内，不是使用单一模型 $\mathcal{M}$，而是考虑来自模型空间 $\mathbb{M}$ 的多个 BNN 架构 \(\{\mathcal{M}_1,\dots ,\mathcal{M}_t\}\)，同时利用 $p(\boldsymbol {\theta}\mid \mathcal{M})$ 和 $p(\mathcal{M})$。最近的研究集中于由不同权重包含模式定义的模型空间 $\mathbb{M}$ 上的模型不确定性（Hubin & Storvik, 2019; Skaaret-Lund et al., 2023），导致 $\mathbb{M}$ 中包含 $2^{\nu}$ 个模型。这需要额外的模型先验。如果假设模型 $\mathcal{M} = (\gamma_1,\ldots ,\gamma_\nu)$ 其中 \(\gamma_{i}\in \{0,1\}\)，\(i\in \{1,\dots ,\nu \}\)，则 Hubin & Storvik (2019) 和 Skaaret-Lund et al. (2023) 提出：
+在贝叶斯统计中，模型不确定性已被广泛研究了几十年（Hoeting et al., 1998; 1999; Wasserman, 2000）。在该框架内，不是使用单一模型 $\mathcal{M}$，而是考虑来自模型空间 $\mathbb{M}$ 的多个 BNN 架构 $\\{\mathcal{M}_1,\dots ,\mathcal{M}_t\\}$，同时利用 $p(\boldsymbol {\theta}\mid \mathcal{M})$ 和 $p(\mathcal{M})$。最近的研究集中于由不同权重包含模式定义的模型空间 $\mathbb{M}$ 上的模型不确定性（Hubin & Storvik, 2019; Skaaret-Lund et al., 2023），导致 $\mathbb{M}$ 中包含 $2^{\nu}$ 个模型。这需要额外的模型先验。如果假设模型 $\mathcal{M} = (\gamma_1,\ldots ,\gamma_\nu)$ 其中 $\gamma_{i}\in \\{0,1\\}$，$i\in \\{1,\dots ,\nu \\}$，则 Hubin & Storvik (2019) 和 Skaaret-Lund et al. (2023) 提出：
 
 $$
 p (\mathcal {M}) = \prod_ {i = 1} ^ {\nu} \operatorname {B e r n o u l l i} \left(\gamma_ {i}; \rho_ {i}\right),
@@ -464,7 +464,7 @@ $$
 g \left(\mathbf {Y} \mid \mathbf {F} _ {\eta + 1}\right) = \prod_ {i = 1} ^ {r _ {j}} \mathcal {N} \left(\mathbf {y} _ {i}; \mathbf {f} _ {i, \eta + 1}, \sigma^ {2} \mathbf {I}\right). \tag {8c}
 $$
 
-此处，$\mathbf{F}_j \in \mathbb{R}^{n \times r_j}$ 是每个中间层 \(j \in \{1, \dots, \eta\}\) 的特征表示，$\mathbf{X} \in \mathbb{R}^{n \times r_0}$ 是输入，$\mathbf{Y} \in \mathbb{R}^{n \times \rho_{\eta+1}}$ 是标签，$n$ 是数据点的数量。下标 $i$ 表示单个特征，因此 $\mathbf{f}_{i,j} \in \mathbb{R}^n$ 是第 $j$ 层的第 $i$ 个特征，$\mathbf{y}_i \in \mathbb{R}^n$ 是所有数据点的第 $i$ 个输出。$r_j$ 是第 $j$ 层每个数据点的特征数量，即“第 $j$ 层的宽度”。要获得核过程，需要考虑协方差矩阵。因此，对于每一层，定义Gram矩阵 $\mathbf{G}_j = \mathbf{F}_j \mathbf{F}_j^T / r_j \in \mathbb{R}^{n \times n}$。由于 $\mathbf{G}_j$ 是协方差为 $\mathbf{C}(\mathbf{F}_j)$ 的独立同分布高斯样本的外积，它必须服从Wishart分布，
+此处，$\mathbf{F}_j \in \mathbb{R}^{n \times r_j}$ 是每个中间层 $j \in \\{1, \dots, \eta\\}$ 的特征表示，$\mathbf{X} \in \mathbb{R}^{n \times r_0}$ 是输入，$\mathbf{Y} \in \mathbb{R}^{n \times \rho_{\eta+1}}$ 是标签，$n$ 是数据点的数量。下标 $i$ 表示单个特征，因此 $\mathbf{f}_{i,j} \in \mathbb{R}^n$ 是第 $j$ 层的第 $i$ 个特征，$\mathbf{y}_i \in \mathbb{R}^n$ 是所有数据点的第 $i$ 个输出。$r_j$ 是第 $j$ 层每个数据点的特征数量，即“第 $j$ 层的宽度”。要获得核过程，需要考虑协方差矩阵。因此，对于每一层，定义Gram矩阵 $\mathbf{G}_j = \mathbf{F}_j \mathbf{F}_j^T / r_j \in \mathbb{R}^{n \times n}$。由于 $\mathbf{G}_j$ 是协方差为 $\mathbf{C}(\mathbf{F}_j)$ 的独立同分布高斯样本的外积，它必须服从Wishart分布，
 
 $$
 g (\mathbf {G} _ {j} \mid \mathbf {F} _ {j - 1}) = \mathcal {W} (\mathbf {G} _ {j}; \mathbf {C} (\mathbf {F} _ {j - 1}) / r _ {j}, r _ {j}).
@@ -494,7 +494,7 @@ $$
 
 深度核机器（DKM；Yang et al., 2023a）是DKP的无限宽度类比。它们具有实际优势，更容易实现且训练成本更低，同时也具有理论优势，因为它们可以与现有的无限宽度神经网络文献相关联。然而，DKM并非严格意义上的贝叶斯模型。通常，对DKP或DGP取无限宽度极限会得到神经网络高斯过程（NNGP；Lee et al., 2017；Agrawal et al., 2020）。无限宽度极限被谨慎地取定，以保留中间Gram表示的灵活性。
 
-可以从方程（8）的DGP按如下方式获得DKM。考虑每个中间层 \(j \in \{1, \dots, \eta\}\) 的特征的以下近似后验：
+可以从方程（8）的DGP按如下方式获得DKM。考虑每个中间层 $j \in \\{1, \dots, \eta\\}$ 的特征的以下近似后验：
 
 $$
 h (\mathbf {F} _ {j}) = \prod_ {i = 1} ^ {r _ {j}} \mathcal {N} (\mathbf {f} _ {i, j}; \mathbf {0}, \mathbf {G} _ {j}).
